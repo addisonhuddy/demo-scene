@@ -21,3 +21,5 @@ do
     done
 
 done
+
+echo -e "\n==> Next, open another terminal and run step 4. The other steps can be run in this window.\n"
