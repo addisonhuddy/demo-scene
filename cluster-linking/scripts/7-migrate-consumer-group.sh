@@ -3,10 +3,10 @@
 echo -e "\n==> Stop migrating the consumer group someGroup via the west link"
 docker-compose exec broker-east bash -c 'echo "consumer.offset.group.filters={\"groupFilters\": [{\"name\": \"*\",\"patternType\": \"LITERAL\",\"filterType\": \"INCLUDE\"},{\"name\":\"someGroup\",\"patternType\":\"LITERAL\",\"filterType\":\"EXCLUDE\"}]}" > newGroupFilters.properties'
 docker-compose exec broker-east kafka-configs \
-  --bootstrap-server broker-east:19092 \
-  --alter \
-  --cluster-link west-cluster-link \
-  --add-config-file newGroupFilters.properties
+    --bootstrap-server broker-east:19092 \
+    --alter \
+    --cluster-link west-cluster-link \
+    --add-config-file newGroupFilters.properties
 
 sleep 2
 
